@@ -59,3 +59,64 @@ ALTER TABLE city ADD FOREIGN KEY (country_id) REFERENCES country(id);
 ```
 
 Также написан init скрипт `001 Create two tables.sql` для `docker-compose`, приводящий БД в состояние по завершению этого ДЗ.
+
+
+## Домашнее задание 3
+
+Ссылка на [статью](https://javarush.ru/groups/posts/2977-java-proekt-ot-a-do-ja-razbiraem-bazih-dannihkh-i-jazihk-sql-chastjh-3).
+
+Написать запросы на получение по нашим данным:
+1. самой мало- / многочисленной страны;
+2. среднее количество жителей в стране;
+3. среднее количество жителей в странах, чьи имена заканчиваются на `a`;
+4. количество стран, у которых население больше четырех миллионов;
+5. отсортировать страны по уменьшению количества жителей;
+6. отсортировать страны по имени в натуральном порядке.
+
+---
+
+```sql
+-- 1. самой мало- / многочисленной страны;
+SELECT *
+FROM country
+WHERE population = (
+                     SELECT min(population)
+                     FROM country
+                   );
+
+SELECT *
+FROM country
+WHERE population = (
+                     SELECT max(population)
+                     FROM country
+                   );
+
+-- 2. среднее количество жителей в стране;
+SELECT country_id
+    , AVG(population) avgPopulation
+FROM city
+GROUP BY country_id;
+
+-- 3. среднее количество жителей в странах, чьи имена заканчиваются на `a`;
+SELECT city.country_id
+    , AVG(city.population) avgPopulation
+FROM city
+JOIN country on country.id = city.country_id
+    AND country.name LIKE '%a'
+GROUP BY city.country_id;
+
+-- 4. количество стран, у которых население больше четырех миллионов;
+SELECT count(id)
+FROM country
+WHERE population > 4000000;
+
+-- 5. отсортировать страны по уменьшению количества жителей;
+SELECT *
+FROM country
+ORDER BY population DESC;
+
+-- 6. отсортировать страны по имени в натуральном порядке.
+SELECT *
+FROM country
+ORDER BY name;
+```
