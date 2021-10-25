@@ -15,7 +15,8 @@ services:
       MYSQL_USER: jtg_user
       MYSQL_PASSWORD: jtg_pass
     volumes:
-      - ./db_storage:/var/lib/mysql
+      - ./mysql_storage:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d/
 
   adminer:
     container_name: adminer_web
