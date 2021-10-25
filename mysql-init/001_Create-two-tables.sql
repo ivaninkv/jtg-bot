@@ -14,7 +14,6 @@ CREATE TABLE city (
     FOREIGN KEY (country_id)
         REFERENCES country(id) );
 
-
 INSERT INTO country (id, name, population) VALUES (1, 'Ukraine', 41806221);
 INSERT INTO country (id, name, population) VALUES (2, 'Russia', 146171015);
 INSERT INTO country (id, name, population) VALUES (3, 'Belorus', 9349645);

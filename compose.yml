@@ -1,7 +1,5 @@
 version: '3.1'
-
 services:
-
   db:
     container_name: mysql_db
     image: mysql:8.0.27
