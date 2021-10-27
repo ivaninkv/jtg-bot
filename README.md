@@ -58,7 +58,7 @@ ALTER TABLE city ADD PRIMARY KEY (id);
 ALTER TABLE city ADD FOREIGN KEY (country_id) REFERENCES country(id);
 ```
 
-Также написан init скрипт `001 Create two tables.sql` для `docker-compose`, приводящий БД в состояние по завершению этого ДЗ.
+Также написан init скрипт `001_Create-two-tables.sql` для `docker-compose`, приводящий БД в состояние по завершению этого ДЗ.
 
 
 ## Домашнее задание 3
@@ -119,4 +119,30 @@ ORDER BY population DESC;
 SELECT *
 FROM country
 ORDER BY name;
+```
+
+## Домашнее задание 4
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3008-java-proekt-ot-a-do-ja-razbiraem-bazih-dannihkh-i-jazihk-sql-chastjh-5--svjazi-i-dzhoinih).
+
+1. Написать SQL script создания таблицы `Student` с полями: id (primary key), name, last_name, e_mail (unique).
+2. Написать SQL script создания таблицы `Book` с полями: id, title (id + title = primary key). Связать `Student` и `Book` связью `Student` one-to-many `Book`.
+3. Написать SQL script создания таблицы `Teacher` с полями: id (primary key), name, last_name, e_mail (unique), subject.
+4. Связать `Student` и `Teacher` связью `Student` many-to-many `Teacher`.
+5. Выбрать `Student` у которых в фамилии есть `oro`, например `Sidorov`, `Voronovsky`.
+6. Выбрать из таблицы `Student` все фамилии (`last_name`) и количество их повторений. Считать, что в базе есть однофамильцы. Отсортировать по количеству в порядке убывания.
+7. Выбрать из `Student` топ 3 самых повторяющихся имен `name`. Отсортировать по количеству в порядке убывания.
+8. Выбрать `Student`, у которых самое большое количество `Book` и связанных с ним `Teacher`.Отсортировать по количеству в порядке убывания.
+9. Выбрать `Teacher`, у которых самое большое количество `Book` у всех его `Student`. Отсортировать по количеству в порядке убывания.
+10. Выбрать `Teacher` у которых количество `Book` у всех его `Student` находится между 7-ю и 11-и. Отсортировать по количеству в порядке убывания.
+11. Вывести всех `last_name` и `name` всех `Teacher` и `Student` с полем `type` (student или teacher). Отсортировать в алфавитном порядке по `last_name`.
+12. Добавить к существующей таблице `Student` колонку `rate`, в которой будет храниться курс, на котором студент сейчас находится (числовое значение от 1 до 6).
+13. Этот пункт не обязателен к выполнению, но будет плюсом. Написать функцию, которая пройдется по всем `Book`, и выведет через запятую все `title`.
+
+---
+
+Вся инициализация структуры описана в файле `002_Students-Teachers-Books.sql` в каталоге mysql-init. Ниже только выборки из этой БД согласно условиям задач.
+
+```sql
+
 ```

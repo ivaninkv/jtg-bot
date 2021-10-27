@@ -4,7 +4,6 @@ services:
     container_name: mysql_db
     image: mysql:8.0.27
     #command: --default-authentication-plugin=mysql_native_password
-    restart: always
     ports:
       - 3306:3306
     environment:
@@ -19,6 +18,5 @@ services:
   adminer:
     container_name: adminer_web
     image: adminer:4.8.1
-    restart: always
     ports:
       - 8080:8080
