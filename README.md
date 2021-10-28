@@ -144,5 +144,41 @@ ORDER BY name;
 Вся инициализация структуры описана в файле `002_Students-Teachers-Books.sql` в каталоге mysql-init. Ниже только выборки из этой БД согласно условиям задач.
 
 ```sql
+-- 5
+SELECT *
+FROM Student s
+WHERE s.Last_name LIKE '%oro%';
 
+-- 6
+SELECT s.Last_name
+    , count(s.Id) cnt
+FROM Student s
+GROUP BY s.Last_name
+ORDER BY count(s.Id) DESC;
+
+-- 7
+SELECT s.Name
+    , count(s.Id) cnt
+FROM Student s
+GROUP BY s.Name
+ORDER BY count(s.Id) DESC
+LIMIT 3;
+
+-- 8
+SELECT s.Last_name
+    , s.Name
+    , count(b.Id) cnt
+    , t.Last_name
+    , t.Name
+FROM Student s
+JOIN Book b on b.Student_id = s.Id
+JOIN StudentTeacherLink stl on stl.Student_id = s.Id
+JOIN Teacher t on t.Id = stl.Teacher_id
+GROUP BY s.Last_name
+    , s.Name
+    , t.Last_name
+    , t.Name
+ORDER BY count(b.Id) DESC;
 ```
+
+Похоже я не правильно сделал структуру таблиц, дальше разбираться и делать задания по SQL лень, т.к. основная цель это обучение Java, SQL и на работе хватает :)
