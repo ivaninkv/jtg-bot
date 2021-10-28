@@ -1,19 +1,17 @@
 version: '3.1'
 services:
   db:
-    container_name: mysql_db
-    image: mysql:8.0.27
-    #command: --default-authentication-plugin=mysql_native_password
+    container_name: postgresql_db
+    image: postgres:14.0
     ports:
-      - 3306:3306
+      - 5432:5432
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: jtg_db
-      MYSQL_USER: jtg_user
-      MYSQL_PASSWORD: jtg_pass
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: jtg_db
     volumes:
-      - ./mysql_storage:/var/lib/mysql
-      - ./mysql-init:/docker-entrypoint-initdb.d/
+      - ./psql_storage:/var/lib/postgresql/data
+      - ./psql-init:/docker-entrypoint-initdb.d/
 
   adminer:
     container_name: adminer_web

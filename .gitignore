@@ -1,3 +1,4 @@
 # DBs storages
 db_storage
 mysql_storage
+psql_storage

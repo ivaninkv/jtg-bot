@@ -1,18 +1,15 @@
-CREATE DATABASE cities;
-USE cities;
+\c cities;
 
 CREATE TABLE country (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(30),
     population INT );
 
 CREATE TABLE city (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(30),
-    country_id INT,
-    population INT,
-    FOREIGN KEY (country_id)
-        REFERENCES country(id) );
+    country_id INT REFERENCES country,
+    population INT );
 
 INSERT INTO country (id, name, population) VALUES
     (1, 'Ukraine', 41806221),

@@ -1,0 +1,5 @@
+CREATE USER jtb_user;
+CREATE DATABASE cities;
+CREATE DATABASE university;
+GRANT ALL PRIVILEGES ON DATABASE cities TO jtb_user;
+GRANT ALL PRIVILEGES ON DATABASE university TO jtb_user;

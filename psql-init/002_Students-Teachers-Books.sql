@@ -1,8 +1,7 @@
-CREATE DATABASE University;
-USE University;
+\c university;
 
 CREATE TABLE Student (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
+    Id SERIAL PRIMARY KEY,
     Name VARCHAR(30),
     Last_Name VARCHAR(30),
     E_mail VARCHAR(30) UNIQUE,
@@ -10,15 +9,14 @@ CREATE TABLE Student (
 );
 
 CREATE TABLE Book (
-    Id INT AUTO_INCREMENT,
-    Student_id INT,
+    Id SERIAL,
+    Student_id INT REFERENCES Student,
     Title VARCHAR(50),
-    CONSTRAINT PK_Book PRIMARY KEY (Id, Title),
-    FOREIGN KEY (Student_id) REFERENCES Student(Id)
+    PRIMARY KEY (Id, Title)
 );
 
 CREATE TABLE Teacher (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
+    Id SERIAL PRIMARY KEY,
     Name VARCHAR(30),
     Last_Name VARCHAR(30),
     E_mail VARCHAR(30) UNIQUE,
@@ -26,11 +24,9 @@ CREATE TABLE Teacher (
 );
 
 CREATE TABLE StudentTeacherLink (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    Student_id INT,
-    Teacher_id INT,
-    FOREIGN KEY (Student_id) REFERENCES Student(Id),
-    FOREIGN KEY (Teacher_id) REFERENCES Teacher(Id),
+    Id SERIAL PRIMARY KEY,
+    Student_id INT REFERENCES Student,
+    Teacher_id INT REFERENCES Teacher,
     UNIQUE (Student_id, Teacher_id)
 );
 
