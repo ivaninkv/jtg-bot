@@ -16,5 +16,7 @@ services:
   adminer:
     container_name: adminer_web
     image: adminer:4.8.1
+    depends_on:
+      - postgresql_db
     ports:
       - 8080:8080
