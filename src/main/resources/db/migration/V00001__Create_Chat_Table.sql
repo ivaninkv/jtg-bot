@@ -1,0 +1,4 @@
+CREATE TABLE chat (
+    id BIGINT PRIMARY KEY,
+    name VARCHAR(50)
+);
