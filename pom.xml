@@ -17,6 +17,9 @@
         <junit.jupiter.api.version>5.8.1</junit.jupiter.api.version>
         <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
         <maven.javadoc.plugin.version>3.3.1</maven.javadoc.plugin.version>
+        <image.comparison.version>4.3.0</image.comparison.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <junit.jupiter.engine.version>5.8.1</junit.jupiter.engine.version>
     </properties>
 
     <dependencies>
@@ -33,6 +36,18 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.jupiter.api.version}</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.engine.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.romankh3</groupId>
+            <artifactId>image-comparison</artifactId>
+            <version>${image.comparison.version}</version>
         </dependency>
     </dependencies>
 
@@ -64,8 +79,20 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+            </plugin>
         </plugins>
     </build>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
 
     <developers>
         <developer>

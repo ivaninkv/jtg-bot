@@ -188,3 +188,9 @@ ORDER BY count(b.Id) DESC;
 Ссылка на [статью](https://javarush.ru/groups/posts/3119-java-proekt-ot-a-do-ja-vse-chto-vih-khoteli-znatjh-o-maven).
 
 ДЗ как такового в этот раз не было поэтому просто проделал то, что описано в статье. Создал проект в IDEA и описал помник со всеми описанными в статье опциями.
+
+## Домашнее задание 6
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3120-java-proekt-ot-a-do-ja-vse-chto-vih-khoteli-znatjh-o-maven-chastjh-2).
+
+Отдельного ДЗ снова не было. Проделал шаги из статьи. Нужно прочитать комментарии или хотя бы [статью](https://howtodoinjava.com/junit5/junit5-maven-dependency/) из одного комментария. Без `junit-jupiter-engine` тесты не запускаются, нужно подключить как зависимость в `pom.xml`.
