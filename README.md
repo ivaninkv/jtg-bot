@@ -219,3 +219,13 @@ ORDER BY count(b.Id) DESC;
 Ссылка на [статью](https://javarush.ru/groups/posts/3179-java-proekt-ot-a-do-ja-pishem-proekt-dobavljaem-springboot-i-nastraivaem-ci-process).
 
 В первой части статьи описывается как подключить спирногвый проект к уже существующему репозиторию, а также о настройке CI процесса в `Github Actions`. Спринг мы подключили ранее, поэтому в рамках этой статьи настраиваем `Github Actions`. Дополнительно пришлось добавить флаг `-DskipTests`, чтобы отключить тесты, т.к. пока тесты запускают приложение, а оно требует БД для применения миграций. Возможно в будущем будет понятно как обойти эту ситуацию.
+
+## Домашнее задание 10
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3204-java-proekt-ot-a-do-ja-dobavljaem-telegram-bota-na-proekt).
+
+В рамках этой статьи сделали следующее:
+* Зарегистрировали Telegram бота `@javatg_bot`
+* Подключили в проект [стартер](https://github.com/rubenlagus/TelegramBots/tree/master/telegrambots-spring-boot-starter)
+* Добавили новый пакет в проект - `bot`
+* Вынес настройки в отдельный файл `application-local.properties`, который добавлен в `.gitignore`
