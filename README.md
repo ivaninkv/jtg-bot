@@ -194,3 +194,22 @@ ORDER BY count(b.Id) DESC;
 Ссылка на [статью](https://javarush.ru/groups/posts/3120-java-proekt-ot-a-do-ja-vse-chto-vih-khoteli-znatjh-o-maven-chastjh-2).
 
 Отдельного ДЗ снова не было. Проделал шаги из статьи. Нужно прочитать комментарии или хотя бы [статью](https://howtodoinjava.com/junit5/junit5-maven-dependency/) из одного комментария. Без `junit-jupiter-engine` тесты не запускаются, нужно подключить как зависимость в `pom.xml`.
+
+## Домашнее задание 7
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3157-java-proekt-ot-a-do-ja-springboot--flyway).
+
+Отдельного ДЗ нет. В рамках этой статьи мы научились генерировать проект в [https://start.spring.io/](https://start.spring.io/). Также мы научились работать с миграциями в `flyway`. Есть нюанс, что в именах миграций должно быть два андерскора `__`, иначе `flyway` не воспринимает файлы как миграции. Также пришлось понизить версию `postgresql` до `13.4`, т.к. это последняя поддерживаемая `flyway` версия.
+
+Полезные ссылки:
+* [Евгений Борисов — Spring-построитель](https://www.youtube.com/watch?v=rd6wxPzXQvo&t=4178s)
+* [Документация в спринге по Flyway](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-execute-flyway-database-migrations-on-startup)
+* [Статья того же автора о шаблонных репозиториях на гитхабе](https://javarush.ru/groups/posts/2478-optimiziruem-rabotu-so-svoimi-proektami-na-github-znakomstvo-s-github-template-repository)
+
+## Домашнее задание 8
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3170-java-proekt-ot-a-do-ja-planirovanie-proekta-semjh-raz-otmerjh--odin-raz-otrezhjh).
+
+В статье говорилось о проектировании приложения и подготовке репозитория к работе. Очень полезная ссылка на гитхабе - [Insight -> Community](https://github.com/ivaninkv/jtg-bot/community). Там нужно пройтись по шагам и настроить свой репозиторий для коллективной работы.
+
+Также полезно создать и настроить проект, чтобы вести разработку по `issue`. 
