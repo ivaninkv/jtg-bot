@@ -229,3 +229,14 @@ ORDER BY count(b.Id) DESC;
 * Подключили в проект [стартер](https://github.com/rubenlagus/TelegramBots/tree/master/telegrambots-spring-boot-starter)
 * Добавили новый пакет в проект - `bot`
 * Вынес настройки в отдельный файл `application-local.properties`, который добавлен в `.gitignore`
+
+## Домашнее задание 11
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3219-java-proekt-ot-a-do-ja-realizuem-command-pattern-dlja-rabotih-s-botom-chastjh-1).
+
+В рамках этой статьи сделали следующее:
+* Добавили в проект 2 пакета `command` и `service`
+* В `service` реализовали отправку сообщений ботом
+* В `command` реализовали отдельные классы для каждой команды
+* В `command` реализовали контейнер с командами, чтобы можно было использовать команды единообразно
+* Поменяли код основного класса `JavaTelegramBot` для работы с новой структурой
