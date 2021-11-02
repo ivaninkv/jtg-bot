@@ -244,3 +244,5 @@ ORDER BY count(b.Id) DESC;
 ## Домашнее задание 12
 
 Ссылка на [статью](https://javarush.ru/groups/posts/3220-java-proekt-ot-a-do-ja-realizuem-command-pattern-dlja-rabotih-s-botom-chastjh-2).
+
+В рамках этой статьи написали тесты для сервиса и команд.
