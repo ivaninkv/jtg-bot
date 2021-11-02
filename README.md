@@ -240,3 +240,7 @@ ORDER BY count(b.Id) DESC;
 * В `command` реализовали отдельные классы для каждой команды
 * В `command` реализовали контейнер с командами, чтобы можно было использовать команды единообразно
 * Поменяли код основного класса `JavaTelegramBot` для работы с новой структурой
+
+## Домашнее задание 12
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3220-java-proekt-ot-a-do-ja-realizuem-command-pattern-dlja-rabotih-s-botom-chastjh-2).

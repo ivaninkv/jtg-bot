@@ -10,7 +10,6 @@ public class CommandContainer {
     private final ImmutableMap<String, Command> commandMap;
     public final Command unknownCommand;
 
-
     public CommandContainer(SendBotMessageService sendBotMessageService) {
         commandMap = ImmutableMap.<String, Command> builder()
                 .put(START.getCommandName(), new StartCommand(sendBotMessageService))
