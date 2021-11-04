@@ -260,3 +260,9 @@ ORDER BY count(b.Id) DESC;
 Полезные ссылки:
 * [Работа с `.env`](https://docs.docker.com/engine/reference/commandline/container_inspect/)
 * [`docker container inspect`](https://docs.docker.com/engine/reference/commandline/container_inspect/) - полезно при траблшутинге
+
+## Домашнее задание 14
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3262-java-proekt-ot-a-do-ja-dobavljaem-vse-chto-svjazano-s-bd-chastjh-1).
+
+В основном, все что описано в первой части было уже сделано в рамках других заданий. Из полезного, мы узнали про [spring profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific). Раньше они были сконфигурированы через основной файл `application.properties`, а теперь заданы как опции VM в IDEA.
