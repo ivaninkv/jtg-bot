@@ -1,1 +1,1 @@
-DELETE FROM public.tg_user;
+DELETE FROM tg_user;
