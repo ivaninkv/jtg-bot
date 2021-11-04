@@ -35,3 +35,4 @@ build/
 ### Custom
 /psql_storage/
 application-local.properties
+/.env

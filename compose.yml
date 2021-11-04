@@ -1,5 +1,18 @@
 version: '3.1'
 services:
+  jtg-bot:
+    container_name: jtg-bot
+    build:
+      context: .
+    environment:
+      - DB_URL=${DB_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - BOT_NAME=${BOT_NAME}
+      - BOT_TOKEN=${BOT_TOKEN}
+    depends_on:
+      - db
+
   db:
     container_name: postgresql_db
     image: postgres:13.4-alpine
