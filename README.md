@@ -246,3 +246,17 @@ ORDER BY count(b.Id) DESC;
 Ссылка на [статью](https://javarush.ru/groups/posts/3220-java-proekt-ot-a-do-ja-realizuem-command-pattern-dlja-rabotih-s-botom-chastjh-2).
 
 В рамках этой статьи написали тесты для сервиса и команд.
+
+## Домашнее задание 13
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3241-java-proekt-ot-a-do-ja-realizuem-razvertihvanie-prilozhenija).
+
+В рамках этой статьи мы сделали следующее:
+* Написали `Dockerfile`. Я немного дополнил файл из статьи - вынес всю конфигурацию в переменные окружения
+* Все переменные окружения вынесены в файл `.env`, который в свою очередь, добавлен в `.gitignore`
+* Поправили `compose.yml` для билда и запуска нашего приложения
+* Написали скрипт `start.ps1` для запуска нашего приложения одной командой в консоли, если в дальнейшем планируется использовать этот скрипт для `CI/CD`, нужно будет написать новый на баше.
+
+Полезные ссылки:
+* [Работа с `.env`](https://docs.docker.com/engine/reference/commandline/container_inspect/)
+* [`docker container inspect`](https://docs.docker.com/engine/reference/commandline/container_inspect/) - полезно при траблшутинге

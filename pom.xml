@@ -12,7 +12,7 @@
 
 	<groupId>com.github.ivaninkv</groupId>
 	<artifactId>jtg-bot</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 	<name>Java Telegram Bot</name>
 	<description>Java Telegram Bot from javarush.ru tutorial</description>
 	<url>https://github.com/ivaninkv/jtg-bot</url>
