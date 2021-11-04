@@ -3,6 +3,7 @@ package com.github.ivaninkv.jtgbot.command;
 import com.github.ivaninkv.jtgbot.bot.JavaTelegramBot;
 import com.github.ivaninkv.jtgbot.service.SendBotMessageService;
 import com.github.ivaninkv.jtgbot.service.SendBotMessageServiceImpl;
+import com.github.ivaninkv.jtgbot.service.TelegramUserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -15,6 +16,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
  */
 abstract class AbstractCommandTest {
     protected JavaTelegramBot javaBot = Mockito.mock(JavaTelegramBot.class);
+    protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(javaBot);
 
     abstract String getCommandName();

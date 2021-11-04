@@ -2,6 +2,8 @@ package com.github.ivaninkv.jtgbot.bot;
 
 import com.github.ivaninkv.jtgbot.command.CommandContainer;
 import com.github.ivaninkv.jtgbot.service.SendBotMessageServiceImpl;
+import com.github.ivaninkv.jtgbot.service.TelegramUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -21,8 +23,9 @@ public class JavaTelegramBot extends TelegramLongPollingBot {
     private static final String COMMAND_PREFIX = "/";
     private final CommandContainer commandContainer;
 
-    public JavaTelegramBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    @Autowired
+    public JavaTelegramBot(TelegramUserService telegramUserService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
     }
 
     @Override

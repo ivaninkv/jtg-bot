@@ -266,3 +266,19 @@ ORDER BY count(b.Id) DESC;
 Ссылка на [статью](https://javarush.ru/groups/posts/3262-java-proekt-ot-a-do-ja-dobavljaem-vse-chto-svjazano-s-bd-chastjh-1).
 
 В основном, все что описано в первой части было уже сделано в рамках других заданий. Из полезного, мы узнали про [spring profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific). Раньше они были сконфигурированы через основной файл `application.properties`, а теперь заданы как опции VM в IDEA.
+
+## Домашнее задание 15
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3264-java-proekt-ot-a-do-ja-dobavljaem-vse-chto-svjazano-s-bd-chastjh-2).
+
+В рамках этой статьи мы сделали следующее:
+* Создали слой `repository` - пакет `repository` и в нем пакет `entity`. Этот слой нужен для работы с БД через ORM
+* Создали новый сервис(интерфейс) `TelegramUserService` для реализации `dependency inversion`, чтобы сервис одной сущности не общался напрямую с репозиторием другой сущности. Общение должно проходить только через сервис второй сущности, а уже сервис общается с репозиторием.
+* Поправил в коде все использования `chatId` на новый тип данных - `long`
+* Теперь при подключении пользователя информация о нем записывается в БД
+* Поправили старые сломанные тесты
+* Написали новые тесты
+
+Полезные ссылки:
+* [Статья про Spring Data JPA](https://habr.com/ru/post/435114/)
+* [Документация Telegram Bot API](https://core.telegram.org/bots/api)

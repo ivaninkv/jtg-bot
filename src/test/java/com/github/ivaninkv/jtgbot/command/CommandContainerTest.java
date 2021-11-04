@@ -1,6 +1,7 @@
 package com.github.ivaninkv.jtgbot.command;
 
 import com.github.ivaninkv.jtgbot.service.SendBotMessageService;
+import com.github.ivaninkv.jtgbot.service.TelegramUserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -19,7 +20,8 @@ class CommandContainerTest {
     @BeforeEach
     void init() {
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageService.class);
-        commandContainer = new CommandContainer(sendBotMessageService);
+        TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
+        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService);
     }
 
     @Test
