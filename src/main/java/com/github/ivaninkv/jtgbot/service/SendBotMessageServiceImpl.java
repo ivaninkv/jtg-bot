@@ -15,9 +15,9 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
     }
 
     @Override
-    public void sendMessage(String chatId, String message) {
+    public void sendMessage(long chatId, String message) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(chatId);
+        sendMessage.setChatId(String.valueOf(chatId));
         sendMessage.enableHtml(true);
         sendMessage.setText(message);
         try {

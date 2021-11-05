@@ -1,5 +1,5 @@
 package com.github.ivaninkv.jtgbot.service;
 
 public interface SendBotMessageService {
-    void sendMessage(String chatId, String message);
+    void sendMessage(long chatId, String message);
 }

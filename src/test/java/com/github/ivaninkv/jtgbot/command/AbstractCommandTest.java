@@ -3,11 +3,13 @@ package com.github.ivaninkv.jtgbot.command;
 import com.github.ivaninkv.jtgbot.bot.JavaTelegramBot;
 import com.github.ivaninkv.jtgbot.service.SendBotMessageService;
 import com.github.ivaninkv.jtgbot.service.SendBotMessageServiceImpl;
+import com.github.ivaninkv.jtgbot.service.TelegramUserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 /**
@@ -15,6 +17,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
  */
 abstract class AbstractCommandTest {
     protected JavaTelegramBot javaBot = Mockito.mock(JavaTelegramBot.class);
+    protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(javaBot);
 
     abstract String getCommandName();
@@ -25,10 +28,14 @@ abstract class AbstractCommandTest {
     public void shouldProperlyExecuteCommand() throws TelegramApiException {
         //given
         Long chatId = 1234567824356L;
+        User user = Mockito.mock(User.class);
+        String name = "userName";
 
         Update update = new Update();
         Message message = Mockito.mock(Message.class);
         Mockito.when(message.getChatId()).thenReturn(chatId);
+        Mockito.when(message.getFrom()).thenReturn(user);
+        Mockito.when(user.getUserName()).thenReturn(name);
         Mockito.when(message.getText()).thenReturn(getCommandName());
         update.setMessage(message);
 
