@@ -1,95 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.6</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.6</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-	<groupId>com.github.ivaninkv</groupId>
-	<artifactId>jtg-bot</artifactId>
-	<version>0.4.0-SNAPSHOT</version>
-	<name>Java Telegram Bot</name>
-	<description>Java Telegram Bot from javarush.ru tutorial</description>
-	<url>https://github.com/ivaninkv/jtg-bot</url>
+    <groupId>com.github.ivaninkv</groupId>
+    <artifactId>jtg-bot</artifactId>
+    <version>0.4.0-SNAPSHOT</version>
+    <name>Java Telegram Bot</name>
+    <description>Java Telegram Bot from javarush.ru tutorial</description>
+    <url>https://github.com/ivaninkv/jtg-bot</url>
 
-	<properties>
-		<java.version>11</java.version>
-		<telegrambots-spring-boot-starter.version>5.3.0</telegrambots-spring-boot-starter.version>
-	</properties>
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <activatedProperties>local</activatedProperties>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>github</id>
+            <properties>
+                <activatedProperties>github</activatedProperties>
+            </properties>
+        </profile>
+    </profiles>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-		</dependency>
+    <properties>
+        <java.version>11</java.version>
+        <telegrambots-spring-boot-starter.version>5.3.0</telegrambots-spring-boot-starter.version>
+    </properties>
 
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.telegram</groupId>
-			<artifactId>telegrambots-spring-boot-starter</artifactId>
-			<version>${telegrambots-spring-boot-starter.version}</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots-spring-boot-starter</artifactId>
+            <version>${telegrambots-spring-boot-starter.version}</version>
+        </dependency>
+    </dependencies>
 
-	<licenses>
-		<license>
-			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
-		</license>
-	</licenses>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-	<developers>
-		<developer>
-			<id>ivaninkv</id>
-			<name>Konstantin Ivanin</name>
-			<email>ivanin.k@gmail.com</email>
-		</developer>
-	</developers>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
 
-	<scm>
-		<connection>git@github.com:ivaninkv/jtg-bot.git</connection>
-		<developerConnection>git@github.com:ivaninkv/jtg-bot.git</developerConnection>
-		<url>https://github.com/ivaninkv/jtg-bot</url>
-	</scm>
+    <developers>
+        <developer>
+            <id>ivaninkv</id>
+            <name>Konstantin Ivanin</name>
+            <email>ivanin.k@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>git@github.com:ivaninkv/jtg-bot.git</connection>
+        <developerConnection>git@github.com:ivaninkv/jtg-bot.git</developerConnection>
+        <url>https://github.com/ivaninkv/jtg-bot</url>
+    </scm>
 
 </project>

@@ -18,7 +18,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 /**
  * Integration-level testing for {@link TelegramUserRepository}.
  */
-@ActiveProfiles("local")
+//@ActiveProfiles("github")
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
 public class TelegramUserRepositoryIT {

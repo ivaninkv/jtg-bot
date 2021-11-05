@@ -278,7 +278,14 @@ ORDER BY count(b.Id) DESC;
 * Теперь при подключении пользователя информация о нем записывается в БД
 * Поправили старые сломанные тесты
 * Написали новые тесты
+* Поработал с профилями `maven` и `spring-boot`. Это разные вещи - первый используется на этапе сборки, второй на этапе выполнения программы или при запуске тестов. Добавил несколько полезных ссылок на эту тему
+* Поправил GitHub Action, добавив туда поднятие БД `postgresql`
 
 Полезные ссылки:
 * [Статья про Spring Data JPA](https://habr.com/ru/post/435114/)
 * [Документация Telegram Bot API](https://core.telegram.org/bots/api)
+* [Проброс профиля мавен в спринг](http://dolszewski.com/spring/spring-boot-properties-per-maven-profile/)
+* [Профили мавен](https://www.baeldung.com/maven-profiles)
+* [Документация по профилям мавен](https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
+* [Документация по добавлению postgres в GitHub Action](https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers)
+* [Альтернативный вариант, ближе к тому, что описано в статье на javarush](https://github.com/marketplace/actions/setup-postgresql)
