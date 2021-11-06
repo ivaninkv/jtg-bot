@@ -289,3 +289,16 @@ ORDER BY count(b.Id) DESC;
 * [Документация по профилям мавен](https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
 * [Документация по добавлению postgres в GitHub Action](https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers)
 * [Альтернативный вариант, ближе к тому, что описано в статье на javarush](https://github.com/marketplace/actions/setup-postgresql)
+
+## Настраиваем автоматический деплой
+
+Это активность без статьи автора - сделаем автоматический деплой на сервер, развернутый в [Oracle Cloud Free Tier](https://www.oracle.com/ru/cloud/free/)
+
+* Разворачиваем сервер на Oracle Linux 8 для доступа к более свежему ПО
+* Ставим на сервер `git`, `docker`, `docker compose`
+* Включаем [swarm mode](https://docs.docker.com/engine/swarm/swarm-mode/), т.к. подсеть `10.0.0.0/8` уже занята, зададим другую при включении этого режима. Команда будет следующей:
+```shell
+docker swarm init --default-addr-pool 10.10.0.0/8
+```
+* Настраиваем в репозитории `Environment` и секреты для него
+* Правим GitHub Action workflow по [инструкции](https://docs.github.com/en/packages/managing-github-packages-using-github-actions-workflows)
