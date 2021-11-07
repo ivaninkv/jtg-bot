@@ -73,4 +73,17 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Add full image name to Env variables
-        run: echo IMAGE_NAME=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }} >> $GITHUB_ENV
+        run: echo FULL_IMAGE_NAME=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }} >> $GITHUB_ENV
+
+      - name: Deploy to Docker swarm
+        uses: wshihadeh/docker-deployment-action@v1
+        with:
+          remote_docker_host: ${{secrets.SSH_USER}}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+          deployment_mode: docker-swarm
+          copy_stack_file: true
+          deploy_path: /app/jtg-bot
+          stack_file_name: compose-deploy.yaml
+          keep_files: 5
+          args: jtg-bot
