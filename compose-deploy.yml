@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  jtg-bot:
+    container_name: jtg-bot
+    image: ${IMAGE_NAME}
+    environment:
+      - DB_URL=${DB_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - BOT_NAME=${BOT_NAME}
+      - BOT_TOKEN=${BOT_TOKEN}
+    depends_on:
+      - db
+
+  db:
+    container_name: postgresql_db
+    image: postgres:13.4-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: jtg_db
+    volumes:
+      - /psql_storage:/var/lib/postgresql/data

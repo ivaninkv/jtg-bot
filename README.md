@@ -302,3 +302,7 @@ docker swarm init --default-addr-pool 10.10.0.0/8
 ```
 * Настраиваем в репозитории `Environment` и секреты для него
 * Правим GitHub Action workflow по [инструкции](https://docs.github.com/en/packages/managing-github-packages-using-github-actions-workflows)
+* Генерим на сервере новый SSH ключ и прописываем его в `~/.ssh/authorized_keys`
+* Добавляем новые секреты в GitHub (SSH_USER, SSH_PUBLIC_KEY и SSH_PRIVATE_KEY)
+* Пишем новый `compose-deploy.yml` файл для деплоя в Docker Swarm
+* Правим `Workflow` для деплоя приложения, используя [этот](https://github.com/marketplace/actions/docker-deployment) Action
