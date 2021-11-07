@@ -22,4 +22,4 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_DB: jtg_db
     volumes:
-      - /psql_storage:/var/lib/postgresql/data
+      - /var/psql_storage:/var/lib/postgresql/data
