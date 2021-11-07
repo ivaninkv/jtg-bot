@@ -2,8 +2,7 @@ version: '3.1'
 services:
   jtg-bot:
     container_name: jtg-bot
-    build:
-      context: .
+    image: ${FULL_IMAGE_NAME}
     environment:
       - DB_URL=${DB_URL}
       - DB_USER=${DB_USER}
@@ -19,17 +18,8 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_DB: jtg_db
     volumes:
-      - ./psql_storage:/var/lib/postgresql/data
-      - ./psql-init:/docker-entrypoint-initdb.d/
-
-  adminer:
-    container_name: adminer_web
-    image: adminer:4.8.1
-    depends_on:
-      - db
-    ports:
-      - 8080:8080
+      - /var/psql_storage:/var/lib/postgresql/data
