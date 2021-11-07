@@ -7,13 +7,13 @@ on:
   push:
     branches:
       - master
-      - JTG-5
   pull_request:
     branches: [ master ]
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  TARGET_FOLDER: /app/jtg-bot
 
 jobs:
   build:
@@ -73,18 +73,27 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Add full image name to Env variables
-        run: echo FULL_IMAGE_NAME=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }} >> $GITHUB_ENV
-
-      - name: Deploy to Docker swarm
-        uses: wshihadeh/docker-deployment-action@v2
+      - name: Copy compose file to remote server
+        uses: appleboy/scp-action@master
         with:
-          remote_docker_host: ${{ secrets.SSH_USER }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
-          deployment_mode: docker-swarm
-          copy_stack_file: true
-          deploy_path: /app/jtg-bot
-          stack_file_name: compose-deploy.yml
-          keep_files: 5
-          args: jtg-bot
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: compose-deploy.yml
+          target: ${{ env.TARGET_FOLDER }}
+
+      - name: Generate .env file and deploy docker stack
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo DB_URL=${{ secrets.DB_URL }} > ${{ env.TARGET_FOLDER }}/.env
+            echo DB_USER=${{ secrets.DB_USER }} >> ${{ env.TARGET_FOLDER }}/.env
+            echo DB_PASS=${{ secrets.DB_PASS }} >> ${{ env.TARGET_FOLDER }}/.env
+            echo BOT_NAME=${{ secrets.BOT_NAME }} >> ${{ env.TARGET_FOLDER }}/.env
+            echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} >> ${{ env.TARGET_FOLDER }}/.env
+            echo FULL_IMAGE_NAME=${{ steps.meta.outputs.tags }} >> ${{ env.TARGET_FOLDER }}/.env
+            env $(cat ${{ env.TARGET_FOLDER }}/.env | grep ^[A-Z] | xargs) \
+                docker stack deploy -c ${{ env.TARGET_FOLDER }}/compose-deploy.yml jtg-bot
