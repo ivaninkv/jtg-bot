@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  jtg-bot-test:
+    image: ${FULL_IMAGE_NAME}
+    environment:
+      - DB_URL=${DB_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - BOT_NAME=${BOT_NAME}
+      - BOT_TOKEN=${BOT_TOKEN}
+    depends_on:
+      - db-test
+
+  db-test:
+    image: postgres:13.4-alpine
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: jtg_db

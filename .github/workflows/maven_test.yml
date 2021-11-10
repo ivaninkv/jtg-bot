@@ -6,16 +6,19 @@ name: Java CI with Maven
 on:
   push:
     branches:
-      - master
+      - 'JTG*'
+  pull_request:
+    branches: [ master ]
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  TARGET_FOLDER: /app/jtg-bot
+  TARGET_FOLDER: /app/jtg-bot-test
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: PROD
+    environment: TEST
     permissions:
       contents: read
       packages: write
@@ -76,7 +79,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: compose-deploy-prod.yml
+          source: compose-deploy-test.yml
           target: ${{ env.TARGET_FOLDER }}
 
       - name: Generate .env file and deploy docker stack
@@ -93,4 +96,4 @@ jobs:
             echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} >> ${{ env.TARGET_FOLDER }}/.env
             echo FULL_IMAGE_NAME=${{ steps.meta.outputs.tags }} >> ${{ env.TARGET_FOLDER }}/.env
             env $(cat ${{ env.TARGET_FOLDER }}/.env | grep ^[A-Z] | xargs) \
-                docker stack deploy -c ${{ env.TARGET_FOLDER }}/compose-deploy-prod.yml jtg-bot
+                docker stack deploy -c ${{ env.TARGET_FOLDER }}/compose-deploy-test.yml jtg-bot-test
