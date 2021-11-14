@@ -7,9 +7,11 @@ import com.github.ivaninkv.jtgbot.javarushclient.dto.GroupsCountRequestArgs;
 import kong.unirest.GenericType;
 import kong.unirest.Unirest;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class JavaRushGroupClientImpl implements JavaRushGroupClient {
     private final String javarushApiGroupPath;
 

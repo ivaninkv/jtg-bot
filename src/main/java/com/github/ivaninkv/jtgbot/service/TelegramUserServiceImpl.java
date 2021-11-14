@@ -1,7 +1,7 @@
 package com.github.ivaninkv.jtgbot.service;
 
 import com.github.ivaninkv.jtgbot.repository.entity.TelegramUser;
-import com.github.ivaninkv.jtgbot.repository.entity.TelegramUserRepository;
+import com.github.ivaninkv.jtgbot.repository.TelegramUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

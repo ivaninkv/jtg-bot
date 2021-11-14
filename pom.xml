@@ -39,6 +39,7 @@
         <java.version>11</java.version>
         <telegrambots-spring-boot-starter.version>5.3.0</telegrambots-spring-boot-starter.version>
         <unirest.java.varsion>3.13.3</unirest.java.varsion>
+        <commons.lang3.version>3.12.0</commons.lang3.version>
     </properties>
 
     <dependencies>
@@ -75,6 +76,11 @@
             <groupId>com.konghq</groupId>
             <artifactId>unirest-java</artifactId>
             <version>${unirest.java.varsion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3.version}</version>
         </dependency>
     </dependencies>
 
