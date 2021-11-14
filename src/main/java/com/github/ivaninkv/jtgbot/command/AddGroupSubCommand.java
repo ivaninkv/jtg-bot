@@ -3,6 +3,7 @@ package com.github.ivaninkv.jtgbot.command;
 import com.github.ivaninkv.jtgbot.javarushclient.JavaRushGroupClient;
 import com.github.ivaninkv.jtgbot.javarushclient.dto.GroupDiscussionInfo;
 import com.github.ivaninkv.jtgbot.javarushclient.dto.GroupRequestArgs;
+import com.github.ivaninkv.jtgbot.repository.entity.GroupSub;
 import com.github.ivaninkv.jtgbot.service.GroupSubService;
 import com.github.ivaninkv.jtgbot.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -63,6 +64,10 @@ public class AddGroupSubCommand implements Command {
             if (isNull(groupById.getId())) {
                 sendGroupNotFound(chatId, groupId);
             }
+            GroupSub savedGroupSub = groupSubService.save(chatId, groupById);
+            sendBotMessageService.sendMessage(chatId, "Подписал на группу " + savedGroupSub.getTitle());
+        } else {
+            sendGroupNotFound(chatId, groupId);
         }
     }
 }
