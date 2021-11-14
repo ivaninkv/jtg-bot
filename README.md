@@ -312,3 +312,36 @@ docker swarm init --default-addr-pool 10.10.0.0/8
 ## Тестовый бот
 
 И еще одна активность без статьи, хотя отсылки к этому были еще в самом начале цикла статей. Регистрируем тестового бота и настраиваем его деплой на тот же сервер, но как другой `stack` докера. В GitHub Action создаем отдельный Environment TEST и закидываем туда все нужные секреты. 
+
+## Домашнее задание 16
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3300-java-proekt-ot-a-do-ja-dobavljaem-vozmozhnostjh-podpisatjhsja-na-gruppu-statey-chastjh-1).
+
+В рамках этой статьи мы сделали следующее:
+* Для работы с API подключили библиотеку `unirest-java`
+* Добавили `dto`-шек для работы с API
+* Вынесли адрес API в настройки
+* Написали тесты
+
+Полезные ссылки:
+* [Статья про сваггер](https://habr.com/ru/post/434798/)
+
+## Домашнее задание 17
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3313-java-proekt-ot-a-do-ja-dobavljaem-vozmozhnostjh-podpisatjhsja-na-gruppu-statey-chastjh-2).
+
+В рамках этой статьи мы сделали следующее:
+* Добавили новую миграцию БД
+* Добавили новый `entity` и отредактировали старый
+* Добавили новый репозиторий и написали к нему интеграционные тесты
+* Написали слой сервисов для работы с подписками на группы
+* Добавили новую команду `addgroupsub`
+
+## Домашнее задание 18
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3314-java-proekt-ot-a-do-ja-dobavljaem-vozmozhnostjh-podpisatjhsja-na-gruppu-statey-chastjh-3).
+
+В рамках этой статьи мы сделали:
+* Добавили команду `listGroupSub`
+* Написали для нее тест
+* Причесали текст в командах

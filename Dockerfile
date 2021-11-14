@@ -6,4 +6,5 @@ ENTRYPOINT ["java", "-Dspring.datasource.url=${DB_URL}", \
             "-Dspring.datasource.username=${DB_USER}", \
             "-Dspring.datasource.password=${DB_PASS}", \
             "-Dbot.username=${BOT_NAME}", "-Dbot.token=${BOT_TOKEN}", \
+            "-Djavarush.api.path=${JAVARUSH_API_PATH}", \
             "-jar", "app.jar"]

@@ -91,6 +91,7 @@ jobs:
             echo DB_PASS=${{ secrets.DB_PASS }} >> ${{ env.TARGET_FOLDER }}/.env
             echo BOT_NAME=${{ secrets.BOT_NAME }} >> ${{ env.TARGET_FOLDER }}/.env
             echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} >> ${{ env.TARGET_FOLDER }}/.env
+            echo JAVARUSH_API_PATH=${{ secrets.JAVARUSH_API_PATH }} >> ${{ env.TARGET_FOLDER }}/.env
             echo FULL_IMAGE_NAME=${{ steps.meta.outputs.tags }} >> ${{ env.TARGET_FOLDER }}/.env
             env $(cat ${{ env.TARGET_FOLDER }}/.env | grep ^[A-Z] | xargs) \
                 docker stack deploy -c ${{ env.TARGET_FOLDER }}/compose-deploy-prod.yml jtg-bot
