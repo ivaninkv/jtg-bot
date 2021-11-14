@@ -336,3 +336,12 @@ docker swarm init --default-addr-pool 10.10.0.0/8
 * Добавили новый репозиторий и написали к нему интеграционные тесты
 * Написали слой сервисов для работы с подписками на группы
 * Добавили новую команду `addgroupsub`
+
+## Домашнее задание 18
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3314-java-proekt-ot-a-do-ja-dobavljaem-vozmozhnostjh-podpisatjhsja-na-gruppu-statey-chastjh-3).
+
+В рамках этой статьи мы сделали:
+* Добавили команду `listGroupSub`
+* Написали для нее тест
+* Причесали текст в командах
