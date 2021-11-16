@@ -345,3 +345,11 @@ docker swarm init --default-addr-pool 10.10.0.0/8
 * Добавили команду `listGroupSub`
 * Написали для нее тест
 * Причесали текст в командах
+
+## Домашнее задание 18
+
+Ссылка на [статью](https://javarush.ru/groups/posts/3330-java-proekt-ot-a-do-ja-udaljaem-podpisku-na-statjhi-iz-gruppih).
+
+В рамках этой статьи мы сделали:
+* Добавили команду `deleteGroupSub`
+* Написали на нее тесты
