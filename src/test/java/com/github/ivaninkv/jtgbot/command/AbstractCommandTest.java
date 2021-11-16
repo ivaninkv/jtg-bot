@@ -28,16 +28,8 @@ abstract class AbstractCommandTest {
     public void shouldProperlyExecuteCommand() throws TelegramApiException {
         //given
         Long chatId = 1234567824356L;
-        User user = Mockito.mock(User.class);
-        String name = "userName";
 
-        Update update = new Update();
-        Message message = Mockito.mock(Message.class);
-        Mockito.when(message.getChatId()).thenReturn(chatId);
-        Mockito.when(message.getFrom()).thenReturn(user);
-        Mockito.when(user.getUserName()).thenReturn(name);
-        Mockito.when(message.getText()).thenReturn(getCommandName());
-        update.setMessage(message);
+        Update update = prepareUpdate(chatId, getCommandName());
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId.toString());
@@ -49,5 +41,20 @@ abstract class AbstractCommandTest {
 
         //then
         Mockito.verify(javaBot).execute(sendMessage);
+    }
+
+    public static Update prepareUpdate(Long chatId, String commandName) {
+        Update update = new Update();
+        User user = Mockito.mock(User.class);
+        String name = "userName";
+
+        Message message = Mockito.mock(Message.class);
+        Mockito.when(message.getChatId()).thenReturn(chatId);
+        Mockito.when(message.getText()).thenReturn(commandName);
+        Mockito.when(message.getFrom()).thenReturn(user);
+        Mockito.when(user.getUserName()).thenReturn(name);
+
+        update.setMessage(message);
+        return update;
     }
 }
