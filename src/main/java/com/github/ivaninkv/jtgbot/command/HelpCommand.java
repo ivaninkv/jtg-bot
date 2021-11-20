@@ -22,7 +22,7 @@ public class HelpCommand implements Command {
                     + "%s - получить помощь в работе со мной\n"
                     + "%s - получить мою статистику использования\n",
             START.getCommandName(), STOP.getCommandName(), ADD_GROUP_SUB.getCommandName(),
-            LIST_GROUP_SUB.getCommandName(), DELETE_GROUP_SUB.getCommandName(), HELP.getCommandName(),
+            DELETE_GROUP_SUB.getCommandName(), LIST_GROUP_SUB.getCommandName(), HELP.getCommandName(),
             STAT.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
