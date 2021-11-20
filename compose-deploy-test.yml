@@ -9,6 +9,7 @@ services:
       - BOT_NAME=${BOT_NAME}
       - BOT_TOKEN=${BOT_TOKEN}
       - JAVARUSH_API_PATH=${JAVARUSH_API_PATH}
+      - POST_SCHEDULER_TIMEOUT=${POST_SCHEDULER_TIMEOUT}
     depends_on:
       - db-test
 
