@@ -11,6 +11,7 @@ services:
       - BOT_TOKEN=${BOT_TOKEN}
       - JAVARUSH_API_PATH=${JAVARUSH_API_PATH}
       - POST_SCHEDULER_TIMEOUT=${POST_SCHEDULER_TIMEOUT}
+      - BOT_ADMINS=${BOT_ADMINS}
     depends_on:
       - db
 

@@ -94,5 +94,6 @@ jobs:
             echo JAVARUSH_API_PATH=${{ secrets.JAVARUSH_API_PATH }} >> ${{ env.TARGET_FOLDER }}/.env
             echo FULL_IMAGE_NAME=${{ steps.meta.outputs.tags }} >> ${{ env.TARGET_FOLDER }}/.env
             echo POST_SCHEDULER_TIMEOUT=${{ secrets.POST_SCHEDULER_TIMEOUT }} >> ${{ env.TARGET_FOLDER }}/.env
+            echo BOT_ADMINS=${{ secrets.BOT_ADMINS }} >> ${{ env.TARGET_FOLDER }}/.env
             env $(cat ${{ env.TARGET_FOLDER }}/.env | grep ^[A-Z] | xargs) \
                 docker stack deploy -c ${{ env.TARGET_FOLDER }}/compose-deploy-prod.yml jtg-bot
