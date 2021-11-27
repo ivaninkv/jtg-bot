@@ -484,3 +484,15 @@ TEST и закидываем туда все нужные секреты.
 
 * Добавили в проект Spring Scheduler
 * Вынесли конфигурирование таймера в настройки
+
+## Домашнее задание 21
+
+Ссылка
+на [статью](https://javarush.ru/groups/posts/3376-java-proekt-ot-a-do-ja-dobavljaem-vozmozhnostjh-rabotih-admina-i-statistiku-dlja-nego-chastjh-1)
+.
+
+В рамках этой статьи мы сделали:
+
+* Добавили боту команду статистики для админа
+* Написали на неё тесты
+* Добавили боту все команды через `BotFather`
