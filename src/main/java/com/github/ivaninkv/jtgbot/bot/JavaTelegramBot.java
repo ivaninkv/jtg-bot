@@ -4,6 +4,7 @@ import com.github.ivaninkv.jtgbot.command.CommandContainer;
 import com.github.ivaninkv.jtgbot.javarushclient.JavaRushGroupClient;
 import com.github.ivaninkv.jtgbot.service.GroupSubService;
 import com.github.ivaninkv.jtgbot.service.SendBotMessageServiceImpl;
+import com.github.ivaninkv.jtgbot.service.StatisticsService;
 import com.github.ivaninkv.jtgbot.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,9 +31,9 @@ public class JavaTelegramBot extends TelegramLongPollingBot {
     @Autowired
     public JavaTelegramBot(TelegramUserService telegramUserService, JavaRushGroupClient groupClient,
                            GroupSubService groupSubService,
-                           @Value("#{'${bot.admins}'.split(',')}") List<String> admins) {
+                           @Value("#{'${bot.admins}'.split(',')}") List<String> admins, StatisticsService statisticsService) {
         this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
-                telegramUserService, groupClient, groupSubService, admins);
+                telegramUserService, groupClient, groupSubService, admins, statisticsService);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.github.ivaninkv.jtgbot.service;
 
-import com.github.ivaninkv.jtgbot.repository.entity.TelegramUser;
 import com.github.ivaninkv.jtgbot.repository.TelegramUserRepository;
+import com.github.ivaninkv.jtgbot.repository.entity.TelegramUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +33,15 @@ public class TelegramUserServiceImpl implements TelegramUserService {
     @Override
     public Optional<TelegramUser> findByChatId(long chatId) {
         return telegramUserRepository.findById(chatId);
+    }
+
+    @Override
+    public List<TelegramUser> findAllInActiveUsers() {
+        return telegramUserRepository.findAllByActiveFalse();
+    }
+
+    @Override
+    public List<TelegramUser> findAllActiveUsers() {
+        return telegramUserRepository.findAllByActiveTrue();
     }
 }
