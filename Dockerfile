@@ -8,4 +8,5 @@ ENTRYPOINT ["java", "-Dspring.datasource.url=${DB_URL}", \
             "-Dbot.username=${BOT_NAME}", "-Dbot.token=${BOT_TOKEN}", \
             "-Djavarush.api.path=${JAVARUSH_API_PATH}", \
             "-Dbot.postSchedulerTimeout=${POST_SCHEDULER_TIMEOUT}", \
+            "-Dbot.admins=${BOT_ADMINS}", \
             "-jar", "app.jar"]
