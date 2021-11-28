@@ -1,6 +1,6 @@
 package com.github.ivaninkv.jtgbot.job;
 
-import com.github.ivaninkv.jtgbot.service.FindNewArticleService;
+import com.github.ivaninkv.jtgbot.service.FindNewPostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -10,25 +10,25 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 /**
- * Job for finding new articles.
+ * Job for finding new posts.
  */
 @Slf4j
 @Component
-public class FindNewArticleJob {
-    private final FindNewArticleService findNewArticleService;
+public class FindNewPostJob {
+    private final FindNewPostService findNewPostService;
 
     @Autowired
-    public FindNewArticleJob(FindNewArticleService findNewArticleService) {
-        this.findNewArticleService = findNewArticleService;
+    public FindNewPostJob(FindNewPostService findNewPostService) {
+        this.findNewPostService = findNewPostService;
     }
 
     @Scheduled(fixedRateString = "${bot.postSchedulerTimeout}")
-    public void findNewArticles() {
+    public void findNewPosts() {
         LocalDateTime start = LocalDateTime.now();
-        log.info("Find new article job started.");
-        findNewArticleService.findNewArticles();
+        log.info("Find new post job started.");
+        findNewPostService.findNewPosts();
         LocalDateTime end = LocalDateTime.now();
-        log.info("Find new articles job finished. Took seconds: {}",
+        log.info("Find new post job finished. Took seconds: {}",
                 end.toEpochSecond(ZoneOffset.UTC) - start.toEpochSecond(ZoneOffset.UTC));
     }
 }

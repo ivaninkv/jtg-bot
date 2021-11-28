@@ -20,8 +20,8 @@ public class GroupSub {
     @Column(name = "title", length = 100)
     private String title;
 
-    @Column(name = "last_article_id", nullable = false)
-    private Integer lastArticleId = 0;
+    @Column(name = "last_post_id", nullable = false)
+    private Integer lastPostId = 0;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
